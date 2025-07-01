@@ -107,12 +107,7 @@ class DetailsPreviousOrder extends StatelessWidget {
                       const SizedBox(height: 4),
                       _buildRichText(
                         'delivery_address'.tr(),
-                        (perviousOrderModel?.orderAddress ?? '')
-                            .split('-')
-                            .map((e) => e.trim())
-                            .where((e) => e.toLowerCase() != 'null' && e.isNotEmpty)
-                            .join('  -  ')
-                            .ifEmpty('لا يوجد عنوان'),
+                        cleanAddress(perviousOrderModel?.orderAddress),
                       ),
 
                       const SizedBox(height: 4),
