@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../../core/constans/app_colors.dart';
+import '../../../../../../core/constans/extenstion_isempty.dart';
 import '../../../../../../core/sharde/widget/navigation.dart';
 import '../../model/previous_order_model.dart';
 import '../details_previous_order.dart';
@@ -112,7 +113,7 @@ class PreviousOrderItem extends StatelessWidget {
                   ),
                   const WidgetSpan(child: SizedBox(width: 8)),
                   TextSpan(
-                    text: previousOrder.orderAddress ?? '',
+                    text:cleanAddress(previousOrder.orderAddress)  ?? '',
                     style: GoogleFonts.alexandria(
                       fontSize: 12.sp,
                       color: AppColors.mainAppColor,
