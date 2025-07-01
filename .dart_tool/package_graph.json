@@ -271,7 +271,7 @@
     },
     {
       "name": "share_plus",
-      "version": "10.1.2",
+      "version": "10.1.4",
       "dependencies": [
         "cross_file",
         "ffi",
@@ -929,7 +929,7 @@
     },
     {
       "name": "share_plus_platform_interface",
-      "version": "5.0.1",
+      "version": "5.0.2",
       "dependencies": [
         "cross_file",
         "flutter",

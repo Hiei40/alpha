@@ -12,13 +12,14 @@ import '../../../../core/constans/app_colors.dart';
 import '../../../../core/constans/constants.dart';
 import '../../../../core/network/local/cachehelper.dart';
 import '../../../../core/sharde/widget/default_button.dart';
+import '../../../../core/sharde/widget/text_forn_field.dart';
 import '../../cart/screen/manager/cart_cubit.dart';
 import '../../cart/screen/model/cart_item_model.dart' as cart;
 import '../manager/add_order_cubit.dart';
 import '../manager/add_order_state.dart';
 import 'widget/dotted_divider_painter.dart';
 
-class AddOrderScreen extends StatefulWidget {
+class AddOrderScreen extends StatelessWidget {
   double total;
   dynamic listItem;
   AllAddressModel allAddressModel;
@@ -32,11 +33,6 @@ class AddOrderScreen extends StatefulWidget {
     required this.allAddressModel, required this.address,
   });
 
-  @override
-  State<AddOrderScreen> createState() => _AddOrderScreenState();
-}
-
-class _AddOrderScreenState extends State<AddOrderScreen> {
   double finalValue = 0.0;
 
   double discountValue = 0;
@@ -46,7 +42,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   final discountCodeController = TextEditingController();
 
   final notes = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +72,143 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                5.verticalSpace,
+                Text(
+                  'do_you_have_discount_code'.tr(),
+                  style: GoogleFonts.alexandria(
+                    textStyle: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color:Colors.black,
+                    ),
+                  ),
+                ),
+                10.verticalSpace,
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child:  Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: CustomTextFormField(
+                          paddingN: 0,
+                          borderColor: Colors.white,
+                          fillColor: Colors.white,
+
+                          hintText: 'enter_discount_code'.tr(),
+                          textInputType: TextInputType.name,
+
+                          validator: (value) {
+
+                            if (value == null || value.isEmpty) {
+                              return 'please_enter_discount_code'.tr();
+                            }
+
+
+
+
+                            return null;
+                          },
+                          controller: discountCodeController,
+
+
+
+                        ),
+                      ),
+                      const SizedBox(width: 5,),
+                      Expanded(
+                        flex: 1,
+                        child:
+
+                        BlocConsumer<AddOrderCubit,AddOrderState>(
+                          listener: (context,state)
+                          {
+                            if(state is GetDiscountError)
+                            {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+
+                                      'coupon_used_before'.tr()
+                                  ),
+                                  backgroundColor: Colors.red,
+                                  duration: const Duration(seconds: 2),
+                                ),
+                              );
+                            }
+
+                            if(state is GetDiscountSuccess)
+                            {
+                              if(BlocProvider.of<AddOrderCubit>(context).discountList[0].discountValue!>0)
+                              {
+                                discountValue=BlocProvider.of<AddOrderCubit>(context).discountList[0].discountValue!;
+                              }
+                              else
+                              {
+
+
+                                discountValue=
+                                    total*((BlocProvider.of<AddOrderCubit>(context).discountList[0].discountPercent?.toDouble()??0.0)/100)
+                                ;
+
+
+
+                              }
+
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+
+                                      'discount_code_activated_successfully'.tr()
+                                  ),
+                                  backgroundColor: Colors.green,
+                                  duration: const Duration(seconds: 2),
+                                ),
+                              );
+                            }
+
+                          },
+                          builder: (context,state)
+                          {
+                            return  ConditionalBuilder(
+                              condition:state is !GetDiscountLoading  ,
+                              builder:(context){
+                                return      DefaultButton(
+
+                                  backgroundColor:AppColors.mainAppColor,
+                                  text: 'activate'.tr(),function: (){
+                                  if (keyForm.currentState!.validate()) {
+
+                                    BlocProvider.of<AddOrderCubit>(context).getDiscount(codeDiscount: discountCodeController.text);
+                                  }
+
+
+                                },);
+                              } ,
+                              fallback:(context){
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.mainAppColor,
+                                    strokeWidth: 1.0,
+                                  ),
+                                );
+
+                              } ,
+
+                            );
+                          },
+
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 20.verticalSpace,
                 Text(
                   'payment_method'.tr(),
@@ -113,9 +245,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildPriceRow(context, 'subtotal'.tr(), widget.total),
+                    _buildPriceRow(context, 'subtotal'.tr(), total),
                     4.verticalSpace,
-                    _buildPriceRow(context, 'delivery_fee'.tr(), double.tryParse(widget.allAddressModel.deliveryValue.toString()) ?? 0.0),
+                    _buildPriceRow(context, 'delivery_fee'.tr(), double.tryParse(allAddressModel.deliveryValue.toString()) ?? 0.0),
                     4.verticalSpace,
                     _buildPriceRow(context, 'discount_value'.tr(), BlocProvider.of<AddOrderCubit>(context).discountList.isNotEmpty ? discountValue : 0.0),
                     10.verticalSpace,
@@ -130,7 +262,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                     _buildPriceRow(
                       context,
                       'total'.tr(),
-                      (widget.total - (BlocProvider.of<AddOrderCubit>(context).discountList.isNotEmpty ? discountValue : 0.0)) + (double.tryParse(widget.allAddressModel.deliveryValue ?? '0') ?? 0.0),
+                      (total - (BlocProvider.of<AddOrderCubit>(context).discountList.isNotEmpty ? discountValue : 0.0)) + (double.tryParse(allAddressModel.deliveryValue ?? '0') ?? 0.0),
                     ),
                   ],
                 ),
@@ -148,30 +280,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                     ),
                   ],
                 ),
-                // 10.verticalSpace,
-                // Container(
-                //   padding: const EdgeInsets.all(10), // Add padding to TextField
-                //   decoration: BoxDecoration(
-                //     color:
-                //     AppColors.white, // Background color for note effect
-                //     borderRadius: BorderRadius.circular(10), // Rounded corners
-                //   ),
-                //   width: MediaQuery.of(context).size.width*.9, // Adjust width as per your requirement
-                //   height: 80.h, // Adjust height as per your requirement
-                //   child: TextField(
-                //     controller: notes,
-                //     maxLines: 10, // Allowing multiple lines of text
-                //     decoration: InputDecoration(
-                //       hintStyle: TextStyle(
-                //           fontWeight: FontWeight.w400,
-                //           fontSize: 13.sp,
-                //           color: AppColors.black,
-                //           fontFamily: GoogleFonts.alexandria().fontFamily),
-                //       hintText: "notes".tr(), // Placeholder text
-                //       border: InputBorder.none, // Remove border
-                //     ),
-                //   ),
-                // ),
+
                 10.verticalSpace,
                 Container(
                   padding: const EdgeInsets.all(10), // Add padding to TextField
@@ -207,7 +316,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                         context,
                         OrderSummery(
                           orderSummryModel: state.orderSummryModel!,
-                          listItemName: widget.listItemName, id: state.id,
+                          listItemName: listItemName, id: state.id,
                         ),
                         false,
                       );
@@ -251,14 +360,14 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                             function: () {
                               BlocProvider.of<AddOrderCubit>(context).addOrder(
                                 discountCode: discountCodeController.text,
-                                regionName: widget.allAddressModel.regionName,
-                                customerAddress: widget.address?? '',
-                                customName: widget.allAddressModel.arabicName,
-                                districtName: widget.allAddressModel.districtName2,
-                                email: widget.allAddressModel.email,
-                                listItem: widget.listItem, // this is the JSON-formatted map
-                                total: widget.total,
-                                addition: num.parse(widget.allAddressModel.deliveryValue?.toString() ?? '0'),
+                                regionName: allAddressModel.regionName,
+                                customerAddress: address?? '',
+                                customName: allAddressModel.arabicName,
+                                districtName: allAddressModel.districtName2,
+                                email: allAddressModel.email,
+                                listItem: listItem, // this is the JSON-formatted map
+                                total: total,
+                                addition: num.parse(allAddressModel.deliveryValue?.toString() ?? '0'),
                                 discount: BlocProvider.of<AddOrderCubit>(context).discountList.isEmpty ? 0.0 : discountValue, notes: notes.text,
                               );
                             },

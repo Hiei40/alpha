@@ -313,7 +313,7 @@ print(decryptedResponse);
     emit(GetDiscountLoading());
     DioHelper.getData(url: Endpoints.couponsDiscountCode(codeDiscount))
         .then((value) {
-          // print(value.data);
+          print(value.data);
           if (value.statusCode == 200) {
             final decryptedText = decrypt(value.data, privateKey, publicKey);
 
