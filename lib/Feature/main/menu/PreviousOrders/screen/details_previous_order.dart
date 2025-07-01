@@ -1,3 +1,4 @@
+import 'package:alpharapp/core/constans/extenstion_isempty.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class DetailsPreviousOrder extends StatelessWidget {
 
           builder: (context,state)
           {
+            print(perviousOrderModel?.orderAddress);
             return Column(
               children: [
 
@@ -103,7 +105,16 @@ class DetailsPreviousOrder extends StatelessWidget {
                       const SizedBox(height: 4),
                       _buildRichText('order_date'.tr(), DateFormat('dd/MM/yyyy','en').format(perviousOrderModel!.orderDate),),
                       const SizedBox(height: 4),
-                      _buildRichText('delivery_address'.tr(), perviousOrderModel?.orderAddress??''),
+                      _buildRichText(
+                        'delivery_address'.tr(),
+                        (perviousOrderModel?.orderAddress ?? '')
+                            .split('-')
+                            .map((e) => e.trim())
+                            .where((e) => e.toLowerCase() != 'null' && e.isNotEmpty)
+                            .join('  -  ')
+                            .ifEmpty('لا يوجد عنوان'),
+                      ),
+
                       const SizedBox(height: 4),
                     ],
                   ),
@@ -191,7 +202,7 @@ class DetailsPreviousOrder extends StatelessWidget {
                                         ),
                                       const SizedBox(height: 5,),
                                         Text(
-                                          '${'quantity'.tr()}: ${BlocProvider.of<PreviousOrderCubit>(context).previousOrderDetailsList[index].quantity ?? 0}', // استبدل 22 بالمتغير الفعلي للكمية
+                                          '${'quantity'.tr()}: ${BlocProvider.of<PreviousOrderCubit>(context).previousOrderDetailsList[index].quantity ?? 0}',
                                           style: GoogleFonts.alexandria(
                                             color: Colors.red,
                                             fontSize: 12.sp,

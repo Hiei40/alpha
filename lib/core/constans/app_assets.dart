@@ -1,7 +1,7 @@
 class AppAssets {
   AppAssets._();
 
-  static const String logo = 'assets/image/app_logo.png';
+  static const String logo = 'assets/image/Whiteboxtruckmockup.png';
   static const String splashLogo = 'assets/image/splash_logo.png';
   static const String logoLogin = 'assets/icons/logoLogin.svg';
 

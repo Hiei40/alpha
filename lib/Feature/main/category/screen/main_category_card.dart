@@ -8,44 +8,60 @@ import '../../../../core/constans/app_colors.dart';
 class MainCategoryCard extends StatelessWidget {
   final String imagePath;
   final String categoryName;
+  final double? width;
+  final double? hieght;
 
   const MainCategoryCard({
     super.key,
     required this.imagePath,
     required this.categoryName,
+    this.width,
+    this.hieght,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CachedNetworkImage(
-          placeholder: (context, url) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: CircularProgressIndicator(
-                value: 1.0,
-                color: AppColors.mainAppColor,
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: hieght ?? 90,
+            width: width ?? 90,
+            alignment: Alignment.center,
+            child: CachedNetworkImage(
+              imageUrl: imagePath,
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(
+                  value: 1.0,
+                  color: AppColors.mainAppColor,
+                ),
               ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              fit: BoxFit.contain,
             ),
           ),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-          imageUrl: imagePath,
-          width: 90,
-          height: 90,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          categoryName,
-          style: GoogleFonts.alexandria(
-            fontSize: 13.sp,
-            fontWeight: FontWeight.w400,
-            color: const Color(0xff5C5C5C),
+          const SizedBox(height: 6),
+          Container(
+            width: width ?? 90,
+            alignment: Alignment.center,
+            child: Text(
+              categoryName,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.alexandria(
+                fontSize: 12.5.sp, // قللنا الحجم شوية
+                fontWeight: FontWeight.w500,
+                height: 1.0,
+                color: const Color(0xff5C5C5C),
+              ),
+              maxLines: 2, // خليها ثابتة 3 لأن بعض العناوين طويلة جدًا
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+            ),
           ),
-          maxLines: 1,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

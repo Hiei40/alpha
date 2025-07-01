@@ -60,7 +60,7 @@ class ChooseBranchScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                      //  Image.asset(AppAssets.logOutIcon),
+                        //  Image.asset(AppAssets.logOutIcon),
 
                         SizedBox(height: 8.h),
                         Text(
@@ -74,20 +74,23 @@ class ChooseBranchScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Padding(
-                          padding: const EdgeInsetsGeometry.symmetric(horizontal: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: DefaultButton(
                             text: "cairo_branch".tr(),
                             function: () async {
                               await CacheHelper.saveData(key: 'baseUrl', value: "http://51.91.6.70/TheOneApiElfarC");
                               await  CacheHelper.saveData(key: 'privateKey', value: "5554f61b8e7fbb9328bf78fc707cb42c");
                               await  CacheHelper.saveData(key: 'publicKey', value: "dd52cb03228834eb");
+                              await CacheHelper.saveData(key: 'check', value: true );
+
                               await CacheHelper.saveData(key: 'sign', value: "ZGQ1MmNiMDMyMjg4MzRlYjpKUy9nZXpaVG9SWm1tYitVWXFnTkdkemo0dFZkcFplMnVUZndWejB4S3kwPQ==");
                               beasUrlCairoOrMa = CacheHelper.getData(key: 'baseUrl');
                               privateKey = CacheHelper.getData(key: 'privateKey');
-                               publicKey = CacheHelper.getData(key: 'publicKey');
-                               sign = CacheHelper.getData(key: 'sign');
+                              publicKey = CacheHelper.getData(key: 'publicKey');
 
-                             // DioHelper.reset();
+                              sign = CacheHelper.getData(key: 'sign');
+
+                              // DioHelper.reset();
                               DioHelper.init();
                               // BlocProvider.of<AddOrderCubit>(context).getAllAddress();
                               // BlocProvider.of<HomeCubit>(context).getBannerOneImage();
@@ -107,14 +110,14 @@ class ChooseBranchScreen extends StatelessWidget {
                               // BlocProvider.of<AddOrderCubit>(context).getQuitity();
                               //BlocProvider(create: (context) => CartCubit());
                               Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                              builder: (context) =>
-                                  MyApp(locale: Locale(currentLang!),),
-                              ),
-                              (route) => false,
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      MyApp(locale: Locale(currentLang!),),
+                                ),
+                                    (route) => false,
                               );
-                              },
+                            },
 
 
 
@@ -125,7 +128,7 @@ class ChooseBranchScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 20.h),
                         Padding(
-                          padding: const EdgeInsetsGeometry.symmetric(horizontal: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: DefaultButton(
                             text: "mansoura_Branch".tr(),
                             borderRadius: 20,
@@ -139,29 +142,29 @@ class ChooseBranchScreen extends StatelessWidget {
                               beasUrlCairoOrMa = "http://51.91.6.70/TheOneApiElfarM";
                               privateKey = CacheHelper.getData(key: 'privateKey');
                               publicKey = CacheHelper.getData(key: 'publicKey');
- check  = CacheHelper.getData(key:  "check");
+                              check  = CacheHelper.getData(key:  "check");
                               sign = CacheHelper.getData(key: 'sign');
                               print(beasUrlCairoOrMa);
-                            //  DioHelper.reset();
+                              //  DioHelper.reset();
                               DioHelper.init();
-  // BlocProvider.of<HomeCubit>(context).getBannerOneImage();
+                              // BlocProvider.of<HomeCubit>(context).getBannerOneImage();
 
-                            //   BlocProvider.of<HomeCubit>(context).getBannerTwoImage();
-                            //   BlocProvider.of<HomeCubit>(context) .getNewsMarquee();
-                            //   BlocProvider.of<HomeCubit>(context) .getBannerThreeImage();
-                            //   BlocProvider.of<HomeCubit>(context) .getBestSellers();
-                            //   BlocProvider.of<HomeCubit>(context).getNewProduct();
-                            //   BlocProvider.of<HomeCubit>(context) .getOfferProduct();
-                            //   BlocProvider.of<HomeCubit>(context) .getOfferTwoProduct();
-                            //   BlocProvider.of<HomeCubit>(context).getBiggestDiscountProducts();
-                            //
-                            //   BlocProvider.of<CategoryCubit>(context).getMainCategory();
-                            //
-                            // BlocProvider.of<AddOrderCubit>(context).getAllAddress();
-                            //   BlocProvider.of<AddOrderCubit>(context).getCustomerSalesBasket();
-                            //   BlocProvider.of<AddOrderCubit>(context).getQuitity();
-                            //
-                            //   //BlocProvider(create: (context) => CartCubit());
+                              //   BlocProvider.of<HomeCubit>(context).getBannerTwoImage();
+                              //   BlocProvider.of<HomeCubit>(context) .getNewsMarquee();
+                              //   BlocProvider.of<HomeCubit>(context) .getBannerThreeImage();
+                              //   BlocProvider.of<HomeCubit>(context) .getBestSellers();
+                              //   BlocProvider.of<HomeCubit>(context).getNewProduct();
+                              //   BlocProvider.of<HomeCubit>(context) .getOfferProduct();
+                              //   BlocProvider.of<HomeCubit>(context) .getOfferTwoProduct();
+                              //   BlocProvider.of<HomeCubit>(context).getBiggestDiscountProducts();
+                              //
+                              //   BlocProvider.of<CategoryCubit>(context).getMainCategory();
+                              //
+                              // BlocProvider.of<AddOrderCubit>(context).getAllAddress();
+                              //   BlocProvider.of<AddOrderCubit>(context).getCustomerSalesBasket();
+                              //   BlocProvider.of<AddOrderCubit>(context).getQuitity();
+                              //
+                              //   //BlocProvider(create: (context) => CartCubit());
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(

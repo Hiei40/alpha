@@ -24,7 +24,7 @@ import '../../category/manager/category_cubit.dart';
 import '../../category/manager/category_state.dart';
 import '../manager/product_details_cubit.dart';
 
-class ProductDetailsScreen extends StatefulWidget {
+class ProductDetailsScreen extends StatelessWidget {
   dynamic productId;
   dynamic categoryId;
   ProductDetailsScreen({
@@ -33,11 +33,6 @@ class ProductDetailsScreen extends StatefulWidget {
     required this.categoryId,
   });
 
-  @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
-}
-
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     currentLang = CacheHelper.getData(key: 'changeLang') ?? 'ar';
@@ -128,7 +123,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   create:
                       (context) =>
                           ProductDetailsCubit()
-                            ..getProductDetails(productId: widget.productId),
+                            ..getProductDetails(productId: productId),
                   child: BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
                     builder: (context, state) {
                       ProductDetailsCubit productDetailsCubit = BlocProvider.of(
@@ -248,7 +243,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                                 .price
                                                 ?.toDouble() ??
                                                 0.0,
-                                            productId: widget.productId,
+                                            productId: productId,
                                           ),
 
 
@@ -303,7 +298,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                           : '${productDetailsCubit.productDetailsList[0].productEnName}'
                                               '${(
                                                   //productDetailsCubit.selectedUnit == 0 &&
-                                                  productDetailsCubit.productDetailsList[0].productUnitImages![0].unitValue == 1) ? '' : ' * ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitValue}'}',
+                                                  productDetailsCubit.productDetailsList[0].productUnitImages![0].unitValue == 1) ? '' : ' ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitValue}'}',
 
                                       maxLines: 2,
 
@@ -402,6 +397,27 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                               ],
                                             ),
                                           ),
+
+
+
+                                        Text(
+                                          productDetailsCubit
+                                              .productDetailsList[0]
+                                              .productCode
+                                              .toString(),
+                                          maxLines: 5,
+
+                                          style: GoogleFonts.alexandria(
+                                            textStyle: TextStyle(
+                                              fontSize: 13.sp,
+
+                                              fontWeight: FontWeight.w300,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+
+
                                       ],
                                     ),
                                     const SizedBox(height: 20),
@@ -484,6 +500,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         ),
                                       ),
                                     ),
+
                                     const SizedBox(height: 10),
                                     Text(
                                       productDetailsCubit
@@ -501,6 +518,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         ),
                                       ),
                                     ),
+
+
+
+                                    const SizedBox(height: 10),
                                   ],
                                 ),
                               ),
@@ -631,7 +652,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     create:
                         (context) =>
                             CategoryCubit()..getItemsForSubCategory(
-                              subCategoryId: widget.categoryId,
+                              subCategoryId: categoryId,
                             ),
                     child: BlocBuilder<CategoryCubit, CategoryState>(
                       builder: (context, state) {

@@ -46,7 +46,7 @@ class ProductCategoriesPage extends StatelessWidget {
         title: Text(
           categoryName,
           style: GoogleFonts.alexandria(
-            fontSize: 16.sp,
+            fontSize: 11.sp,
             fontWeight: FontWeight.w600,
             color: const Color(0xff5C5C5C),
           ),

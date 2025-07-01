@@ -218,7 +218,7 @@ class ProductCard extends StatelessWidget {
                                   maxLines: 2,
                                   style: GoogleFonts.alexandria(
                                     textStyle: TextStyle(
-                                      fontSize: 13.sp,
+                                      fontSize: 10.sp,
                                       fontWeight: FontWeight.w300,
                                       color: const Color(0xff5C5C5C),
                                     ),

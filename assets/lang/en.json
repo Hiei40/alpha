@@ -121,6 +121,8 @@
   "organic_white_eggs": "Organic White Eggs (15 eggs)",
   "momos_veal_fillet_slices": "Momo's Veal Fillet Slices (450 g)",
   "phone_with_country_code": "Phone number ",
+  "product_code": "Product Code",
+
   "please_enter_phone": "Please enter phone number",
   "please_enter_valid_phone": "Please enter a valid phone number",
   "institution_name": "Institution Name",
@@ -184,11 +186,11 @@
     },
     {
       "question": "What are the areas where delivery service is available within Egypt?",
-      "answer": "Currently, delivery is available in Cairo and Giza, and we are working on expanding to other governorates soon"
+      "answer": "Currently in Cairo, Giza and Mansoura, and we are working on expanding to the rest of the governorates."
     },
     {
       "question": "What is the minimum order value?",
-      "answer": "50 EGP"
+      "answer": "It varies from one region to another"
     },
     {
       "question": "How long does the delivery process take?",

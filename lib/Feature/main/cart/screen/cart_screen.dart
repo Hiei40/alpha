@@ -62,7 +62,11 @@ class _CartScreenState extends State<CartScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          SvgPicture.asset(AppAssets.cartIcon, height: 60,color: AppColors.mainAppColor,),
+                          SvgPicture.asset(
+                            AppAssets.cartIcon,
+                            height: 60,
+                            color: AppColors.mainAppColor,
+                          ),
                           const SizedBox(width: 5),
                           Text(
                             'cart'.tr(),
@@ -367,10 +371,8 @@ class _CartScreenState extends State<CartScreen> {
                           .allAddressList[addOrderCubit.selectAddress]
                           .address
                           .toString(),
-
-                    ),
-
-                 ],
+                ),
+              ],
             );
           },
         );

@@ -372,7 +372,7 @@ class HomeScreenWi extends StatelessWidget {
             const SizedBox(height: 10),
 
             SizedBox(
-              height: 120.h,
+              height: 140.h,
               child: BlocBuilder<CategoryCubit, CategoryState>(
                 builder: (context, state) {
                   CategoryCubit mainCategoryCubit =
