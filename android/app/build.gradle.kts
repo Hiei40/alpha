@@ -20,8 +20,8 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.theone.phar"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = "27.0.12077973"
+    compileSdk = 35
+    ndkVersion = "29.0.13113456"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,8 +36,8 @@ android {
         applicationId = "com.theone.phar"
         minSdk = 23
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     signingConfigs {

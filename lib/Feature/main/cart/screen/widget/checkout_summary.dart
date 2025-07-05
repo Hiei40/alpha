@@ -11,7 +11,7 @@ import '../../../Add Order/screen/add_order_screen.dart';
 import '../../../Add Order/screen/widget/inactive_account_dialog.dart';
 import '../manager/cart_cubit.dart';
 import '../manager/chat_state.dart';
-import 'custom_button_sheet.dart'; // assuming this is where CartState classes are defined
+// assuming this is where CartState classes are defined
 
 class CheckoutSummary extends StatelessWidget {
   final AddOrderCubit addOrderCubit;
@@ -108,7 +108,7 @@ class CheckoutSummary extends StatelessWidget {
                       //     },
                       //   );
                       // } else
-                        if (isActive.contains("True")) {
+                      if (isActive.contains("True")) {
                         if (cartItems.isNotEmpty && totalPrice >= billValue) {
                           navigato(
                             context,

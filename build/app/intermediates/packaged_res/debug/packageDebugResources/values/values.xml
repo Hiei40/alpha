@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
+    <string name="gcm_defaultSenderId" translatable="false">570279047715</string>
+    <string name="google_api_key" translatable="false">AIzaSyAGDvM5LogQlAizoO8vuKNV7hyaIPhhUFM</string>
+    <string name="google_app_id" translatable="false">1:570279047715:android:1cc54c68bc1460fdfbf796</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAGDvM5LogQlAizoO8vuKNV7hyaIPhhUFM</string>
+    <string name="google_storage_bucket" translatable="false">alpharapp-ec491.firebasestorage.app</string>
+    <string name="project_id" translatable="false">alpharapp-ec491</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

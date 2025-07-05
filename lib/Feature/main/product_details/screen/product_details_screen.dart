@@ -55,13 +55,16 @@ class ProductDetailsScreen extends StatelessWidget {
                       context,
                     ).changeSelectIndexBottom(index: 2);
                   },
-                  child: SvgPicture.asset(AppAssets.cartNoEmptyIcon,color: AppColors.mainAppColor),
+                  child: SvgPicture.asset(
+                    AppAssets.cartNoEmptyIcon,
+                    color: AppColors.mainAppColor,
+                  ),
                 ),
                 BlocBuilder<CartCubit, CartState>(
                   builder: (context, state) {
-                   final cubit= context.watch<CartCubit>();
+                    final cubit = context.watch<CartCubit>();
                     return Text(
-                      '${cubit.cartItems.isNotEmpty? cubit.cartItems.length: 0}',
+                      '${cubit.cartItems.isNotEmpty ? cubit.cartItems.length : 0}',
                       style: GoogleFonts.alexandria(
                         textStyle: TextStyle(
                           fontSize: 22.sp,
@@ -72,7 +75,6 @@ class ProductDetailsScreen extends StatelessWidget {
                     );
                   },
                 ),
-
               ],
             ),
           ),
@@ -203,50 +205,61 @@ class ProductDetailsScreen extends StatelessWidget {
                                                   ? null
                                                   : 5.w,
                                           child: CounterBox(
-                                            stockQuantity: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .stockQty ??
+                                            stockQuantity:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .stockQty ??
                                                 0,
-                                            barcode: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .barcode ??
+                                            barcode:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .barcode ??
                                                 '',
-                                            customerQuantity: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .customerQuantity ??
+                                            customerQuantity:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .customerQuantity ??
                                                 0,
-                                            customerquntatiy: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .customerQuantity ??
+                                            customerquntatiy:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .customerQuantity ??
                                                 0,
-                                            image: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productcImage
-                                                .toString(),
+                                            image:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productcImage
+                                                    .toString(),
                                             nameAr:
-                                            '${productDetailsCubit.productDetailsList[0].productArName} * ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitArName}',
+                                                '${productDetailsCubit.productDetailsList[0].productArName} * ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitArName}',
                                             nameEn:
-                                            '${productDetailsCubit.productDetailsList[0].productEnName} * ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitEnName}',
-                                            priceAfterDiscount: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .priceAfterDiscount
-                                                ?.toDouble() ??
+                                                '${productDetailsCubit.productDetailsList[0].productEnName} * ${productDetailsCubit.productDetailsList[0].productUnitImages![productDetailsCubit.selectedUnit].unitEnName}',
+                                            priceAfterDiscount:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .priceAfterDiscount
+                                                    .toDouble() ??
                                                 0.0,
-                                            priceBeforeDiscount: productDetailsCubit
-                                                .productDetailsList[0]
-                                                .productUnitImages![productDetailsCubit.selectedUnit]
-                                                .price
-                                                ?.toDouble() ??
+                                            priceBeforeDiscount:
+                                                productDetailsCubit
+                                                    .productDetailsList[0]
+                                                    .productUnitImages![productDetailsCubit
+                                                        .selectedUnit]
+                                                    .price
+                                                    .toDouble() ??
                                                 0.0,
                                             productId: productId,
                                           ),
-
-
                                         ),
                                         if (productDetailsCubit
                                                 .productDetailsList[0]
@@ -322,10 +335,10 @@ class ProductDetailsScreen extends StatelessWidget {
                                             children: [
                                               TextSpan(
                                                 text: (productDetailsCubit
-                                                            .productDetailsList[0]
-                                                            .productUnitImages![productDetailsCubit
-                                                                .selectedUnit]
-                                                            .priceAfterDiscount)
+                                                        .productDetailsList[0]
+                                                        .productUnitImages![productDetailsCubit
+                                                            .selectedUnit]
+                                                        .priceAfterDiscount)
                                                     .toStringAsFixed(2),
                                                 style: GoogleFonts.alexandria(
                                                   fontSize: 16.sp,
@@ -359,10 +372,10 @@ class ProductDetailsScreen extends StatelessWidget {
                                               children: [
                                                 TextSpan(
                                                   text: (productDetailsCubit
-                                                              .productDetailsList[0]
-                                                              .productUnitImages![productDetailsCubit
-                                                                  .selectedUnit]
-                                                              .price)
+                                                          .productDetailsList[0]
+                                                          .productUnitImages![productDetailsCubit
+                                                              .selectedUnit]
+                                                          .price)
                                                       .toStringAsFixed(2),
                                                   style: GoogleFonts.alexandria(
                                                     fontSize: 16.sp,
@@ -398,8 +411,6 @@ class ProductDetailsScreen extends StatelessWidget {
                                             ),
                                           ),
 
-
-
                                         Text(
                                           productDetailsCubit
                                               .productDetailsList[0]
@@ -416,8 +427,6 @@ class ProductDetailsScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-
-
                                       ],
                                     ),
                                     const SizedBox(height: 20),
@@ -504,9 +513,9 @@ class ProductDetailsScreen extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Text(
                                       productDetailsCubit
-                                              .productDetailsList[0]
-                                              .specifications
-                                              .toString(),
+                                          .productDetailsList[0]
+                                          .specifications
+                                          .toString(),
                                       maxLines: 5,
 
                                       style: GoogleFonts.alexandria(
@@ -518,8 +527,6 @@ class ProductDetailsScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-
-
 
                                     const SizedBox(height: 10),
                                   ],

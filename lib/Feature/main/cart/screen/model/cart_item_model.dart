@@ -1,4 +1,3 @@
-import '../../../Home/model/product_model.dart';
 class CartItem {
   final int productId;
   final String nameAr;
@@ -11,7 +10,7 @@ class CartItem {
   final num customerQuantity;
   final int quantity;
 
-  CartItem( {
+  CartItem({
     required this.productId,
     required this.nameAr,
     required this.nameEn,
@@ -22,7 +21,7 @@ class CartItem {
     required this.stockQuantity,
     required this.customerQuantity,
     required this.quantity,
-    });
+  });
 
   CartItem copyWith({
     int? productId,

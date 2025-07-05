@@ -16,41 +16,11 @@ import '../../../../core/network/local/cachehelper.dart';
 import '../../Search/screen/search_screen.dart';
 import 'main_category_card.dart';
 
-import 'package:alpharapp/Feature/main/category/manager/category_cubit.dart';
-import 'package:alpharapp/Feature/main/category/manager/category_state.dart';
-import 'package:alpharapp/Feature/main/category/screen/product_categories_page.dart';
-import 'package:alpharapp/core/sharde/widget/navigation.dart';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/constans/app_assets.dart';
-import '../../../../core/constans/constants.dart';
-import '../../../../core/network/local/cachehelper.dart';
-import '../../Search/screen/search_screen.dart';
-import 'main_category_card.dart';
-
-import 'package:alpharapp/Feature/main/category/manager/category_cubit.dart';
-import 'package:alpharapp/Feature/main/category/manager/category_state.dart';
-import 'package:alpharapp/Feature/main/category/screen/product_categories_page.dart';
-import 'package:alpharapp/core/sharde/widget/navigation.dart';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-import '../../../../core/constans/app_assets.dart';
-import '../../../../core/constans/constants.dart';
-import '../../../../core/network/local/cachehelper.dart';
-import '../../Search/screen/search_screen.dart';
-import 'main_category_card.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
@@ -88,7 +58,7 @@ class CategoryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SvgPicture.asset(AppAssets.searchIcon)
+                  SvgPicture.asset(AppAssets.searchIcon),
                 ],
               ),
             ),
@@ -96,40 +66,42 @@ class CategoryScreen extends StatelessWidget {
           Expanded(
             child: BlocBuilder<CategoryCubit, CategoryState>(
               builder: (context, state) {
-                final mainCategoryCubit = BlocProvider.of<CategoryCubit>(context);
+                final mainCategoryCubit = BlocProvider.of<CategoryCubit>(
+                  context,
+                );
                 return ConditionalBuilder(
                   condition: state is GetMainCategorySuccess,
                   builder: (context) {
                     return GridView.builder(
                       padding: const EdgeInsets.only(top: 10),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 0.0,
-                        mainAxisSpacing: 0.0,
-                        childAspectRatio: 0.73,
-                      ),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 0.0,
+                            mainAxisSpacing: 0.0,
+                            childAspectRatio: 0.73,
+                          ),
                       itemCount: mainCategoryCubit.mainCategoryList.length,
                       itemBuilder: (context, index) {
                         final item = mainCategoryCubit.mainCategoryList[index];
-                        final name = (currentLocale.languageCode == 'ar')
-                            ? item.categoryArName.toString()
-                            : item.categoryEnName.toString();
+                        final name =
+                            (currentLocale.languageCode == 'ar')
+                                ? item.categoryArName.toString()
+                                : item.categoryEnName.toString();
 
                         return InkWell(
                           onTap: () {
                             navigato(
                               context,
                               ProductCategoriesPage(
-
                                 categoryId: item.categoryId,
                                 categoryName: name,
-
                               ),
                             );
                           },
                           child: MainCategoryCard(
-                            width:.5*MediaQuery.of(context).size.width,
-                            hieght: .247*MediaQuery.of(context).size.height,
+                            width: .5 * MediaQuery.of(context).size.width,
+                            hieght: .247 * MediaQuery.of(context).size.height,
                             categoryName: name,
                             imagePath: item.categoryImage.toString(),
                           ),
@@ -142,12 +114,13 @@ class CategoryScreen extends StatelessWidget {
                       enabled: true,
                       child: GridView.builder(
                         padding: const EdgeInsets.only(top: 10),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 10.0,
-                          childAspectRatio: 0.95,
-                        ),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 10.0,
+                              mainAxisSpacing: 10.0,
+                              childAspectRatio: 0.95,
+                            ),
                         itemCount: 10,
                         itemBuilder: (context, index) {
                           return const MainCategoryCard(

@@ -1,0 +1,154 @@
+[
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-night-mdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-night-mdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xxhdpi_splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xxhdpi/splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xxxhdpi_splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xxxhdpi/splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xhdpi_splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xhdpi/splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xhdpi_launcher_icon.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-night-xxhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-night-xxhdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-hdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-hdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xhdpi/android12splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-anydpi-v26_launcher_icon.xml.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-anydpi-v26/launcher_icon.xml"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-night-xhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-night-xhdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xxhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xxhdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-mdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-mdpi/android12splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-xxxhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-xxxhdpi/android12splash.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-night-hdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-night-hdpi/android12splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xxhdpi_launcher_icon.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xxhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xxxhdpi_launcher_icon.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xxxhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-v21_launch_background.xml.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-mdpi_launcher_icon.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-mdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-hdpi_launcher_icon.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-hdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-v21_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-v21/background.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-night-xxxhdpi_android12splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-night-xxxhdpi/android12splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xxxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-hdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-mdpi_splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-mdpi/splash.png"
+    },
+    {
+        "merged": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-debug-53:/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/youssef/.gradle/daemon/8.11.1/com.theone.phar.app-main-46:/drawable-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.theone.phar.app-debug-53:/drawable-hdpi_splash.png.flat",
+        "source": "com.theone.phar.app-main-46:/drawable-hdpi/splash.png"
+    }
+]

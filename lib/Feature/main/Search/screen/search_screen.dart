@@ -12,30 +12,13 @@ import 'package:lottie/lottie.dart';
 
 import '../../../../core/constans/app_assets.dart';
 import '../../../../core/constans/app_colors.dart';
-import '../../../../core/constans/constants.dart';
 import '../../../../core/network/local/cachehelper.dart';
 
 import '../../../../core/sharde/widget/navigation.dart';
 import '../../product_details/screen/product_details_screen.dart';
 import '../manager/search_cubit.dart';
 import '../manager/search_state.dart';
-import 'dart:async';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-
-import '../../../../core/constans/app_assets.dart';
-import '../../../../core/constans/app_colors.dart';
-import '../../../../core/network/local/cachehelper.dart';
-import '../../../../core/sharde/widget/navigation.dart';
-import '../../product_details/screen/product_details_screen.dart';
-import '../manager/search_cubit.dart';
-import '../manager/search_state.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -76,7 +59,11 @@ class SearchScreen extends StatelessWidget {
               ),
               prefixIcon: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SvgPicture.asset(AppAssets.searchIcon, width: 20, height: 20),
+                child: SvgPicture.asset(
+                  AppAssets.searchIcon,
+                  width: 20,
+                  height: 20,
+                ),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -114,7 +101,10 @@ class SearchScreen extends StatelessWidget {
                 // لو حابب تضيف عنوان أو أي حاجة فوق الليست
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
                     child: ListView.separated(
                       itemCount: searchProduct.searchList.length,
                       itemBuilder: (context, index) {
@@ -133,7 +123,9 @@ class SearchScreen extends StatelessWidget {
                           child: SizedBox(
                             height: 90.h,
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 4),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 4,
+                              ),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(12),
@@ -155,17 +147,27 @@ class SearchScreen extends StatelessWidget {
                                       child: CachedNetworkImage(
                                         width: MediaQuery.sizeOf(context).width,
                                         imageUrl: item.productImage.toString(),
-                                        placeholder: (context, url) => Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Center(
-                                            child: CircularProgressIndicator(
-                                              value: 1.0,
-                                              color: AppColors.mainAppColor,
+                                        placeholder:
+                                            (context, url) => Padding(
+                                              padding: const EdgeInsets.all(
+                                                8.0,
+                                              ),
+                                              child: Center(
+                                                child:
+                                                    CircularProgressIndicator(
+                                                      value: 1.0,
+                                                      color:
+                                                          AppColors
+                                                              .mainAppColor,
+                                                    ),
+                                              ),
                                             ),
-                                          ),
+                                        errorWidget:
+                                            (context, url, error) =>
+                                                const Icon(Icons.error),
+                                        fadeInDuration: const Duration(
+                                          seconds: 1,
                                         ),
-                                        errorWidget: (context, url, error) => const Icon(Icons.error),
-                                        fadeInDuration: const Duration(seconds: 1),
                                         height: 90.h,
                                       ),
                                     ),
@@ -173,10 +175,14 @@ class SearchScreen extends StatelessWidget {
                                   Expanded(
                                     flex: 2,
                                     child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0,
+                                      ),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             currentLocale.languageCode == 'ar'
@@ -197,11 +203,14 @@ class SearchScreen extends StatelessWidget {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: item.priceAfterDiscount.toString(),
+                                                  text:
+                                                      item.priceAfterDiscount
+                                                          .toString(),
                                                   style: GoogleFonts.alexandria(
                                                     fontSize: 16.sp,
                                                     fontWeight: FontWeight.w400,
-                                                    color: AppColors.mainAppColor,
+                                                    color:
+                                                        AppColors.mainAppColor,
                                                   ),
                                                 ),
                                                 TextSpan(
@@ -209,39 +218,57 @@ class SearchScreen extends StatelessWidget {
                                                   style: GoogleFonts.alexandria(
                                                     fontSize: 12.sp,
                                                     fontWeight: FontWeight.w300,
-                                                    color: AppColors.mainAppColor,
+                                                    color:
+                                                        AppColors.mainAppColor,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          if (item.price != item.priceAfterDiscount)
+                                          if (item.price !=
+                                              item.priceAfterDiscount)
                                             RichText(
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(
                                                     text: item.price.toString(),
-                                                    style: GoogleFonts.alexandria(
-                                                      fontSize: 12.sp,
-                                                      fontWeight: FontWeight.w400,
-                                                      color: Colors.red,
-                                                      decoration: TextDecoration.lineThrough,
-                                                      decorationStyle: TextDecorationStyle.dashed,
-                                                      decorationColor: Colors.red,
-                                                      decorationThickness: 2.0,
-                                                    ),
+                                                    style:
+                                                        GoogleFonts.alexandria(
+                                                          fontSize: 12.sp,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.red,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .lineThrough,
+                                                          decorationStyle:
+                                                              TextDecorationStyle
+                                                                  .dashed,
+                                                          decorationColor:
+                                                              Colors.red,
+                                                          decorationThickness:
+                                                              2.0,
+                                                        ),
                                                   ),
                                                   TextSpan(
                                                     text: 'currency'.tr(),
-                                                    style: GoogleFonts.alexandria(
-                                                      fontSize: 12.sp,
-                                                      fontWeight: FontWeight.w300,
-                                                      color: Colors.red,
-                                                      decoration: TextDecoration.lineThrough,
-                                                      decorationStyle: TextDecorationStyle.dashed,
-                                                      decorationColor: Colors.red,
-                                                      decorationThickness: 2.0,
-                                                    ),
+                                                    style:
+                                                        GoogleFonts.alexandria(
+                                                          fontSize: 12.sp,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          color: Colors.red,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .lineThrough,
+                                                          decorationStyle:
+                                                              TextDecorationStyle
+                                                                  .dashed,
+                                                          decorationColor:
+                                                              Colors.red,
+                                                          decorationThickness:
+                                                              2.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -256,7 +283,8 @@ class SearchScreen extends StatelessWidget {
                           ),
                         );
                       },
-                      separatorBuilder: (context, index) => const SizedBox(height: 10),
+                      separatorBuilder:
+                          (context, index) => const SizedBox(height: 10),
                     ),
                   ),
                 ),
